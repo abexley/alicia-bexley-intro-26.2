@@ -24,6 +24,9 @@ h1 {
     font-weight: bold;
     color: #8b3a62;
     margin-top: 20px;
+    font-family: "Pacifico", cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
 }
 
 h2 {
@@ -141,10 +144,6 @@ nav {
    NAME STYLING (top of page)
 ========================= */
 
-h1 {
-    font-family: "Pacifico", cursive;
-    letter-spacing: 1px;
-}
 
 #connect {
     display: flex;
