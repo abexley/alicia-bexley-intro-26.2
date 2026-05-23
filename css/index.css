@@ -62,7 +62,43 @@ ul li {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
+/* =========================
+   EXPERIENCE FLEXBOX LAYOUT
+========================= */
 
+.experience-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Row layout: job title left, date right */
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Make title pretty */
+.job-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Make date align right */
+.job-date {
+    font-size: 1rem;
+    color: #8b3a62;
+}
+
+/* Description under the flex row */
+.job-description {
+    margin-top: 10px;
+    font-size: 1rem;
+}
 /* =========================
    LINKS (CONNECT SECTION)
 ========================= */
@@ -121,6 +157,15 @@ h1 {
     padding: 10px;
     background: white;
     border-radius: 8px;
+}
+
+#connect ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* centers items */
+  gap: 15px; /* space between links */
+  padding: 0;
+  list-style: none;
 }
 
 <section id="experience">
