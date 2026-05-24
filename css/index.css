@@ -1,0 +1,171 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: lightpink;
+    color: #333;
+    font-family: "Pacifico", cursive;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #8b3a62;
+    margin-top: 20px;
+    font-family: "Pacifico", cursive;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #5a2a4a;
+    margin-top: 40px;
+    text-align: center;
+}
+
+/* =========================
+   SECTIONS (spacing + layout)
+========================= */
+
+section {
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 12px;
+}
+
+/* =========================
+   EXPERIENCE LIST STYLING
+========================= */
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    background: white;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+/* =========================
+   EXPERIENCE FLEXBOX LAYOUT
+========================= */
+
+.experience-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Row layout: job title left, date right */
+.experience-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Make title pretty */
+.job-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* Make date align right */
+.job-date {
+    font-size: 1rem;
+    color: #8b3a62;
+}
+
+/* Description under the flex row */
+.job-description {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+/* =========================
+   LINKS (CONNECT SECTION)
+========================= */
+
+a {
+    color: #b30059;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+}
+
+a:hover {
+    color: #ff2e93;
+    text-decoration: underline;
+}
+
+/* =========================
+   NAVIGATION BAR
+========================= */
+
+nav {
+    text-align: center;
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 10px;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    padding: 10px;
+    z-index: 1000;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+/* =========================
+   NAME STYLING (top of page)
+========================= */
+
+
+#connect {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#connect a {
+    margin: 10px;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+}
+
+#connect ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: center; /* centers items */
+  gap: 15px; /* space between links */
+  padding: 0;
+  list-style: none;
+}
+
+
+
