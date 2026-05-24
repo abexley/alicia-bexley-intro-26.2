@@ -24,9 +24,6 @@ h1 {
     font-weight: bold;
     color: #8b3a62;
     margin-top: 20px;
-    font-family: "Pacifico", cursive;
-    letter-spacing: 2px;
-    text-transform: uppercase;
 }
 
 h2 {
@@ -65,66 +62,7 @@ ul li {
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
-/* =========================
-   EXPERIENCE FLEXBOX LAYOUT
-========================= */
 
-.experience-item {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-/* Row layout: job title left, date right */
-.experience-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Make title pretty */
-.job-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0;
-}
-
-/* Make date align right */
-.job-date {
-    font-size: 1rem;
-    color: #8b3a62;
-}
-
-/* Description under the flex row */
-.job-description {
-    margin-top: 10px;
-    font-size: 1rem;
-}
-/* =========================
-   SKILLS LIST STYLING
-========================= */
-
-#skills ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 10px;
-    padding: 0;
-    list-style: none;
-}
-
-/* =========================
-   SKILLS FLEXBOX STYLING
-========================= */
-#skills li {
-    background-color: #8b3a62;
-    color: white;
-    padding: 8px 12px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
 /* =========================
    LINKS (CONNECT SECTION)
 ========================= */
@@ -167,6 +105,10 @@ nav {
    NAME STYLING (top of page)
 ========================= */
 
+h1 {
+    font-family: "Pacifico", cursive;
+    letter-spacing: 1px;
+}
 
 #connect {
     display: flex;
@@ -181,27 +123,17 @@ nav {
     border-radius: 8px;
 }
 
-#connect ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* centers items */
-  gap: 15px; /* space between links */
-  padding: 0;
-  list-style: none;
-}
+<section id="experience">
+  <h2>Experience</h2>
+  <ul>
+    <li>Job 1</li>
+    <li>Job 2</li>
+  </ul>
+</section>
 
-/* =====================
-   MEDIA QUERIES
-===================== */
-@media (max-width: 600px) {
-    #skills ul {
-        justify-content: center;
-        gap: 8px;
-    }
-
-    #skills li {
-        font-size: 0.8rem;
-        padding: 6px 10px;
-    }
-}
+<section id="connect">
+  <h2>Connect</h2>
+  <a href="#">LinkedIn</a>
+  <a href="#">GitHub</a>
+</section>
 
