@@ -102,6 +102,31 @@ ul li {
     margin-top: 10px;
     font-size: 1rem;
 }
+
+
+/* =========================
+   SKILLS LIST STYLING
+========================= */
+
+#skills ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+/* =========================
+   SKILLS FLEXBOX STYLING
+========================= */
+#skills li {
+    background-color: #8b3a62;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+}
 /* =========================
    LINKS (CONNECT SECTION)
 ========================= */
@@ -167,6 +192,19 @@ nav {
   list-style: none;
 }
 
+/* =====================
+   MEDIA QUERIES
+===================== */
+@media (max-width: 600px) {
+    #skills ul {
+        justify-content: center;
+        gap: 8px;
+    }
 
+    #skills li {
+        font-size: 0.8rem;
+        padding: 6px 10px;
+    }
+}
 
 
