@@ -14,7 +14,7 @@ const thisYear = today.getFullYear();
 const copyright = document.createElement("p");
 copyright.innerHTML = `&#169; Alicia Bexley ${thisYear}`;
 
-footer.appendChild(copyright);
+footerSelect.appendChild(copyright);
 
 
 /**********************
