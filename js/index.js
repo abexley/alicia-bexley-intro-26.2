@@ -30,3 +30,57 @@ for (let i = 0; i < skills.length; i++) {
     skill.innerText = skills[i];
     skillsList.appendChild(skill);
 }
+
+/**********************
+ *  GLOBAL VARIABLES    
+ **********************/
+const GITHUB_USERNAME = "abexley";
+const apiUrl = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
+
+/**********************
+ *  FETCH REQUEST     
+ **********************/
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.status}`);
+    }
+    return response.json();
+  })
+
+/**********************
+ *  PARSE JSON DATA     
+ **********************/
+  .then(repositories => {
+    console.log("Repositories:", repositories);
+
+    /**********************
+     * DISPLAY REPOSITORIES IN DOM
+     **********************/
+
+    const projectSection = document.getElementById("projects");
+    const projectList = projectSection.querySelector("ul");
+
+    for (let i = 0; i < repositories.length; i++) {
+      const repo = repositories[i];
+
+      const listItem = document.createElement("li");
+      listItem.textContent = repo.name;
+
+      projectList.appendChild(listItem);
+    }
+  })
+
+/**********************
+ *  ERROR HANDLING     
+ **********************/
+  .catch(error => {
+    console.error("There was a problem with the fetch operation:", error);
+
+    const projectsSection = document.querySelector("#projects");
+
+    if (projectsSection) {
+      projectsSection.innerHTML =
+        "<p>Unable to load projects. Please try again later.</p>";
+    }
+  });
