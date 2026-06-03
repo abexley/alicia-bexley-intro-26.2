@@ -205,3 +205,78 @@ nav {
     }
 }
 
+/* =======================
+   PROJECTS SECTION
+======================= */
+
+#projects {
+  padding: 2rem;
+  background-color: #f7f7f7;
+}
+
+/* =======================
+   REPO LIST STYLES
+======================= */
+
+#projects ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  /* =======================
+     LAYOUT / FLEXBOX
+  ======================= */
+
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* =======================
+   REPOSITORY ITEM CARD
+======================= */
+
+#projects li {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 250px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#projects li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* =======================
+   REPOSITORY LINKS
+======================= */
+
+#projects a {
+  text-decoration: none;
+  color: #0366d6;
+  font-weight: 600;
+}
+
+#projects a:hover {
+  text-decoration: underline;
+}
+
+/* =======================
+   MEDIA QUERIES
+======================= */
+
+@media (min-width: 768px) {
+  #projects ul {
+    justify-content: center;
+  }
+
+  #projects li {
+    width: 300px;
+  }
+}
+
