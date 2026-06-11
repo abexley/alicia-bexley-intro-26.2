@@ -1,0 +1,207 @@
+/* ---------- Global Styles ---------- */
+body {
+  font-family: "Georgia", serif;
+  margin: 0;
+  padding: 0;
+  background: #f7f4ef;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* ---------- Hero Header ---------- */
+.hero {
+  background: linear-gradient(135deg, #1a1a1a, #333);
+  color: white;
+  padding: 40px 20px;
+  text-align: center;
+  border-bottom: 4px solid #d4c7a1;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto 10px auto;
+}
+
+nav a {
+  color: #ffdd66;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav h1 {
+  margin: 0;
+  font-size: 2rem;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 1.1rem;
+  opacity: 0.9;
+}
+
+/* ---------- Controls Section ---------- */
+.controls {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 25px;
+  background: #fff;
+  border-bottom: 2px solid #e6e0d4;
+}
+
+.controls input {
+  padding: 12px 15px;
+  width: 280px;
+  border: 2px solid #444;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: #fafafa;
+}
+
+.controls button {
+  padding: 12px 18px;
+  border: none;
+  background: #222;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: 0.2s ease;
+}
+
+.controls button:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
+
+/* ---------- Section Title ---------- */
+.section-title {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 1.6rem;
+  color: #3a3a3a;
+  font-weight: normal;
+}
+
+/* ---------- Results Grid ---------- */
+#results {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------- Card Styles ---------- */
+.card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: 0.25s ease;
+  border: 1px solid #e6e0d4;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.card h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.2rem;
+  color: #2a2a2a;
+}
+
+.card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 20px;
+  background: #1a1a1a;
+  color: #d4c7a1;
+  margin-top: 40px;
+  font-size: 0.9rem;
+}
+
+/* ----------Pagination Styles ---------- */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding-bottom: 20px;
+}
+
+.pagination button {
+  padding: 10px 16px;
+  background: #222;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s ease;
+}
+
+.pagination button:hover {
+  background: #444;
+  transform: translateY(-2px);
+}
+
+/* ----------Responsive Design ---------- */
+
+@media (max-width: 600px) {
+
+  /* Nav bar stacks nicely */
+  .artic-nav {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  /* Header text scales down */
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
+
+  /* Buttons become full width */
+  .controls button {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  /* Cards stack into 1 column */
+  .results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Images stay inside the card */
+  .card img {
+    width: 100%;
+    height: auto;
+  }
+}
+
