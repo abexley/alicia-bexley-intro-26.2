@@ -91,10 +91,13 @@ nav h1 {
 /* ---------- Results Grid ---------- */
 #results {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 25px;
   padding: 30px;
-  max-width: 1200px;
+
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+
+  width: 100%;
+  max-width: 1800px;
   margin: 0 auto;
 }
 
@@ -115,6 +118,7 @@ nav h1 {
 
 .card img {
   width: 100%;
+  height: 300px;
   border-radius: 8px;
   margin-bottom: 12px;
   object-fit: cover;
@@ -165,43 +169,117 @@ footer {
   background: #444;
   transform: translateY(-2px);
 }
+/* ---------- Focus States (Keyboard Navigation) ---------- */
+button:focus,
+input:focus,
+a:focus {
+  outline: 3px solid #ffdd66;
+  outline-offset: 2px;
+}
 
-/* ----------Responsive Design ---------- */
+/* ---------- Accessibility ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
-@media (max-width: 600px) {
+/* ---------- Responsive Design ---------- */
+@media (max-width: 768px) {
 
-  /* Nav bar stacks nicely */
-  .artic-nav {
+  /* Header */
+  .hero {
+    padding: 30px 15px;
+  }
+
+  nav {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 15px;
     text-align: center;
   }
 
-  /* Header text scales down */
-  .hero h1 {
-    font-size: 1.6rem;
+  nav h1 {
+    font-size: 1.8rem;
+  }
+
+  nav a {
+    font-size: 0.95rem;
   }
 
   .subtitle {
     font-size: 1rem;
-    padding: 0 1rem;
+    padding: 0 10px;
   }
 
-  /* Buttons become full width */
+  /* Search Controls */
+  .controls {
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 15px;
+  }
+
+  .controls input {
+    width: 100%;
+    max-width: 350px;
+    box-sizing: border-box;
+  }
+
   .controls button {
     width: 100%;
-    margin-bottom: 0.5rem;
+    max-width: 350px;
   }
 
-  /* Cards stack into 1 column */
-  .results-grid {
+  /* Results Grid */
+  #results {
     grid-template-columns: 1fr;
+    padding: 20px 15px;
   }
 
-  /* Images stay inside the card */
+  /* Cards */
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
   .card img {
     width: 100%;
     height: auto;
   }
-}
 
+  .card h3 {
+    font-size: 1.1rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  /* Pagination */
+  .pagination {
+    flex-wrap: wrap;
+    padding: 0 15px 20px;
+  }
+
+  .pagination button {
+    flex: 1;
+    min-width: 120px;
+  }
+
+  /* Results Heading */
+  .section-title {
+    font-size: 1.4rem;
+    padding: 0 15px;
+  }
+
+  /* Footer */
+  footer {
+    padding: 15px;
+    font-size: 0.85rem;
+  }
+}

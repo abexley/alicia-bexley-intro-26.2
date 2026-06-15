@@ -4,6 +4,10 @@ const artistsBtn = document.getElementById("artistsBtn");
 const searchInput = document.getElementById("searchInput");
 const results = document.getElementById("results");
 
+let artistPage = 1;
+let artworkPage = 1;
+let currentView = "artworks";
+
 // ---------- Fetch Artworks ----------
 async function fetchArtworks() {
   results.innerHTML = "<p>Loading artworks...</p>";
@@ -25,9 +29,6 @@ async function fetchArtworks() {
   }
 }
 
-let artistPage = 1;
-let artworkPage = 1;
-let currentView = "artworks";
 
 async function fetchArtists() {
   results.innerHTML = "<p>Loading artists...</p>";
@@ -53,6 +54,11 @@ async function fetchArtists() {
 // ---------- Display Artworks ----------
 function displayArtworks(artworks) {
   results.innerHTML = "";
+  
+  if (!artworks.length) {
+    results.innerHTML = "<p>No artworks found.</p>";
+    return;
+  }
 
   artworks.forEach(item => {
     const imgUrl = item.image_id
@@ -61,7 +67,7 @@ function displayArtworks(artworks) {
 
     const card = `
       <div class="card">
-        <img src="${imgUrl}" alt="${item.title}">
+        <img src="${imgUrl}" alt="Artwork titled ${item.title}">
         <h3>${item.title}</h3>
         <p><strong>Artist:</strong> ${item.artist_title || "Unknown"}</p>
         <p><strong>Date:</strong> ${item.date_display || "N/A"}</p>
@@ -75,6 +81,10 @@ function displayArtworks(artworks) {
 // ---------- Display Artists ----------
 function displayArtists(artists) {
   results.innerHTML = "";
+  if (!artists.length) {
+    results.innerHTML = "<p>No artists found.</p>";
+    return;
+  }
 
   artists.forEach(person => {
     const card = `
@@ -136,6 +146,8 @@ document.getElementById("prevPage").addEventListener("click", () => {
     if (artworkPage > 1) {
       artworkPage--;
       fetchArtworks();
+  
     }
   }
 });
+ fetchArtworks();
