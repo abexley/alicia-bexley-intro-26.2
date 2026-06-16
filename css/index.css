@@ -287,7 +287,140 @@ footer {
     color: var(--accent);
     font-weight: 600;
 }
+/* =========================
+   MESSAGE FORM STYLING
+========================= */
+#leave-message form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
 
+#leave-message label {
+  font-size: 0.95rem;
+  color: #5a2a4a;
+  margin-bottom: 4px;
+  display: block;
+}
+
+#leave-message input,
+#leave-message textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 2px solid #d48aad;
+  border-radius: 8px;
+  font-family: "Pacifico", cursive;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #333;
+  box-sizing: border-box;
+  transition: border-color 0.2s ease;
+}
+
+#messages input:focus,
+#messages textarea:focus {
+  outline: none;
+  border-color: #8b3a62;
+}
+
+#messages textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+#leave-message form button[type="submit"] {
+  align-self: flex-start;
+  background-color: #8b3a62;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 28px;
+  font-family: "Pacifico", cursive;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  min-width: 120px;
+  min-height: 48px;
+}
+
+#messages ul li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+#messages ul li a {
+  font-weight: bold;
+  color: #8b3a62;
+}
+
+#messages ul li span {
+  flex: 1;
+  min-width: 100px;
+}
+
+#messages ul li button {
+  background-color: #c0395a;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  min-width: 80px;
+  min-height: 44px;
+  transition: background-color 0.2s ease;
+  font-family: "Pacifico", cursive;
+}
+
+#messages ul li button:hover {
+  background-color: #8b0000;
+}
+
+/* =========================
+   MEDIA QUERIES — FORM
+@media (max-width: 600px) {
+  #messages input,
+  #messages textarea {
+    font-size: 1rem;   /* To prevent the iOS auto-zoom (must be ≥16px equivalent) */
+    padding: 14px;
+  }
+
+  #messages form button[type="submit"] {
+    width: 100%;
+    padding: 16px;
+    font-size: 1.1rem;
+  }
+
+  #messages ul li button {
+    width: 100%;
+    padding: 12px;
+    font-size: 1rem;
+  }
+}
+/* =========================
+   EDIT BUTTON & INLINE EDIT
+/* Edit input field */
+#messages ul li input.edit-input {
+  flex: 1;
+  padding: 6px 10px;
+  border: 2px solid #d48aad;
+  border-radius: 6px;
+  font-family: "Pacifico", cursive;
+  font-size: 0.9rem;
+  color: #333;
+  min-width: 100px;
+}
+
+/* Edit button */
+#messages ul li button:first-of-type {
+  background-color: #8b3a62;
+}
+
+#messages ul li button:first-of-type:hover {
+  background-color: #5a2a4a;
 /* =========================================================
    RESPONSIVE DESIGN
    ========================================================= */
