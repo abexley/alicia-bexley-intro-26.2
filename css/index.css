@@ -53,7 +53,7 @@ h2 {
 }
 
 /* =========================================================
-   NAVIGATION 
+   NAVIGATION
    ========================================================= */
 nav {
     position: sticky;
@@ -76,8 +76,41 @@ nav a:hover {
     color: var(--accent-light);
 }
 
+#hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--accent);
+}
+
+#nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+#darkModeToggle {
+    background: var(--accent);
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: 0.2s ease;
+}
+
+#darkModeToggle:hover {
+    background: var(--accent-light);
+}
+
 /* =========================================================
-   SECTION LAYOUT 
+   SECTION LAYOUT
    ========================================================= */
 section {
     max-width: var(--max-width);
@@ -89,7 +122,7 @@ section {
 }
 
 /* =========================================================
-   ABOUT SECTION (
+   ABOUT SECTION
    ========================================================= */
 .profile-wrapper {
     display: flex;
@@ -107,8 +140,14 @@ section {
 }
 
 /* =========================================================
-   EXPERIENCE SECTION 
+   EXPERIENCE SECTION
    ========================================================= */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .experience-item {
     background: var(--card-bg);
     padding: 1.2rem;
@@ -139,7 +178,7 @@ section {
 }
 
 /* =========================================================
-   SKILLS SECTION 
+   SKILLS SECTION
    ========================================================= */
 #skills ul {
     display: flex;
@@ -159,7 +198,7 @@ section {
 }
 
 /* =========================================================
-   PROJECTS SECTION (Rubric: API inserts repos)
+   PROJECTS SECTION
    ========================================================= */
 #projects ul {
     list-style: none;
@@ -195,7 +234,7 @@ section {
 }
 
 /* =========================================================
-   LEAVE A MESSAGE SECTION 
+   LEAVE A MESSAGE SECTION
    ========================================================= */
 form input,
 form textarea {
@@ -205,6 +244,7 @@ form textarea {
     border: 1px solid #ccc;
     margin-bottom: 1rem;
     font-family: var(--font-body);
+    box-sizing: border-box;
 }
 
 form button {
@@ -225,6 +265,9 @@ form button:hover {
     list-style: none;
     padding: 0;
     margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 .message-item {
@@ -255,7 +298,7 @@ form button:hover {
 }
 
 /* =========================================================
-   CONNECT SECTION 
+   CONNECT SECTION
    ========================================================= */
 #connect ul {
     display: flex;
@@ -266,20 +309,31 @@ form button:hover {
 }
 
 #connect a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
     background: white;
-    padding: 10px;
+    padding: 10px 16px;
     border-radius: var(--radius);
     color: var(--accent);
     font-weight: 600;
     text-decoration: none;
+    box-shadow: var(--shadow);
+    transition: 0.2s ease;
 }
 
 #connect a:hover {
     color: var(--accent-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+#connect i {
+    font-size: 1.2rem;
 }
 
 /* =========================================================
-   FOOTER 
+   FOOTER
    ========================================================= */
 footer {
     text-align: center;
@@ -428,4 +482,43 @@ footer {
     h1 { font-size: 2.2rem; }
     section { padding: 1.5rem; }
     #projects li { width: 100%; }
+
+    #hamburger {
+        display: block;
+    }
+
+    #nav-links {
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        padding-top: 1rem;
+    }
+
+    #nav-links.open {
+        display: flex;
+    }
+}
+
+/* =========================================================
+   DARK MODE
+   ========================================================= */
+body.dark-mode {
+    --bg: #1a1013;
+    --card-bg: #2a1a21;
+    --text: #f0e6ec;
+    --accent: #d4729a;
+    --accent-light: #e89dba;
+}
+
+body.dark-mode nav {
+    background: #110b0e;
+    border-bottom-color: #3a2030;
+}
+
+body.dark-mode form input,
+body.dark-mode form textarea {
+    background: #2a1a21;
+    color: #f0e6ec;
+    border-color: #3a2030;
 }

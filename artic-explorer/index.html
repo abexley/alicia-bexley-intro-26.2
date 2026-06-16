@@ -37,22 +37,28 @@
 <button id="artistsBtn" aria-label="Show artists">Show Artists</button>
   </section>
 
-  <section class="pagination">
-<button id="prevPage" aria-label="Previous page">Previous</button>
-<button id="nextPage" aria-label="Next page">Next</button>
+
+ <!-- Pagination -->
+ <section class="pagination">
+  <button id="prevPage" aria-label="Previous page">Previous</button>
+
+  <span id="pageIndicator">Page 1</span>
+
+  <button id="nextPage" aria-label="Next page">Next</button>
 </section>
+
 
   <!-- Section Title -->
   <h2 class="section-title">Results</h2>
 
   <!-- Results Grid -->
-  <section id="results"></section>
+ <section id="results" aria-live="polite"></section>
 
   <!-- Footer -->
   <footer>
     <p>ARTIC Explorer Open API• Built by Alicia Bexley </p>
   </footer>
 
-  <script src="js/index.js"></script>
+ <script src="js/index.js"></script>
 </body>
 </html>
