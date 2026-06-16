@@ -32,78 +32,140 @@ for (let i = 0; i < skills.length; i++) {
 }
 
 /**********************
- * MESSAGE FORM SECTION
+ *  GLOBAL VARIABLES    
  **********************/
-const messageForm = document.forms["leave_message"];
-const messageSection = document.querySelector("#messages");
+const GITHUB_USERNAME = "abexley";
+const apiUrl = `https://api.github.com/users/${GITHUB_USERNAME}/repos`;
 
-function updateMessagesVisibility() {
-  const messageList = messageSection.querySelector("ul");
-  if (messageList.children.length === 0) {
-    messageSection.style.display = "none";
-  } else {
-    messageSection.style.display = "block";
-  }
-}
+/**********************
+ *  FETCH REQUEST     
+ **********************/
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`Network response was not ok: ${response.status}`);
+    }
+    return response.json();
+  })
 
-// Hide messages section on page load 
-updateMessagesVisibility();
+/**********************
+ *  PARSE JSON DATA     
+ **********************/
+  .then(repositories => {
+    console.log("Repositories:", repositories);
 
-messageForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  const name = event.target.usersName.value;
-  const email = event.target.usersEmail.value;
-  const message = event.target.usersMessage.value;
-  console.log(name, email, message);
+    /**********************
+     * DISPLAY REPOSITORIES IN DOM
+     **********************/
 
-  const messageList = messageSection.querySelector("ul");
+    const projectSection = document.getElementById("projects");
+    const projectList = projectSection.querySelector("ul");
 
-  // Create new list item
-  const newMessage = document.createElement("li");
-  newMessage.innerHTML = `<a href="mailto:${email}">${name}</a> <span>${message}</span>`;
+    // --- MANUAL FEATURED PROJECT (ARTIC) ---
+const articProject = document.createElement("li");
 
-  // Remove button
-  const removeButton = document.createElement("button");
-  removeButton.innerText = "remove";
-  removeButton.setAttribute("type", "button");
-  removeButton.addEventListener("click", function () {
-    const entry = removeButton.parentNode;
-    entry.remove();
-    updateMessagesVisibility();
-  });
 
-  // Edit button
-  const editButton = document.createElement("button");
-  editButton.innerText = "edit";
-  editButton.setAttribute("type", "button");
-  editButton.addEventListener("click", function () {
-    const entry = editButton.parentNode;
-    const span = entry.querySelector("span");
+    for (let i = 0; i < repositories.length; i++) {
+      const repo = repositories[i];
 
-    // If already editing, save and restore
-    if (editButton.innerText === "save") {
-      const input = entry.querySelector("input.edit-input");
-      span.innerText = input.value;
-      span.style.display = "inline";
-      input.remove();
-      editButton.innerText = "edit";
-    } else {
-      // Replace span with an input field
-      const input = document.createElement("input");
-      input.setAttribute("type", "text");
-      input.setAttribute("class", "edit-input");
-      input.value = span.innerText;
-      span.style.display = "none";
-      entry.insertBefore(input, removeButton);
-      editButton.innerText = "save";
-      input.focus();
+      const listItem = document.createElement("li");
+      listItem.textContent = repo.name;
+
+      projectList.appendChild(listItem);
+    }
+  })
+
+/**********************
+ *  ERROR HANDLING     
+ **********************/
+  .catch(error => {
+    console.error("There was a problem with the fetch operation:", error);
+
+    const projectsSection = document.querySelector("#projects");
+
+    if (projectsSection) {
+      projectsSection.innerHTML =
+        "<p>Unable to load projects. Please try again later.</p>";
     }
   });
 
+/**********************
+ *  MESSAGE FORM    
+ **********************/
+
+const messageForm = document.forms["leave_message"];
+const messageSection = document.getElementById("messages");
+const messageList = messageSection.querySelector("ul");
+
+messageSection.style.display = "none";
+
+messageForm.addEventListener("submit", function (event) {
+  event.preventDefault(); // Prevent page refresh
+
+  const usersName = event.target.usersName.value;
+  const usersEmail = event.target.usersEmail.value;
+  const usersMessage = event.target.usersMessage.value;
+
+
+  const newMessage = document.createElement("li");
+  newMessage.classList.add("message-item");
+
+  newMessage.innerHTML = `
+    <a href="mailto:${usersEmail}">${usersName}</a>
+    <span> — ${usersMessage}</span>
+  `;
+
+/**********************
+ *  REMOVE BUTTON     
+ **********************/
+  const removeButton = document.createElement("button");
+  removeButton.innerText = "remove";
+  removeButton.type = "button";
+
+  removeButton.addEventListener("click", function () {
+    const entry = removeButton.parentNode;
+    entry.remove();
+
+    
+    if (messageList.children.length === 0) {
+      messageSection.style.display = "none";
+    }
+  });
+
+  /**********************
+ *  EDIT BUTTON     
+ **********************/
+  const editButton = document.createElement("button");
+  editButton.innerText = "edit";
+  editButton.type = "button";
+
+  editButton.addEventListener("click", function () {
+    // Extract current values
+    const currentName = usersName;
+    const currentEmail = usersEmail;
+    const currentMessage = usersMessage;
+
+    
+    const updatedMessage = prompt(
+      "Edit your message:",
+      currentMessage
+    );
+
+    if (updatedMessage !== null && updatedMessage.trim() !== "") {
+      newMessage.querySelector("span").innerText = ` — ${updatedMessage}`;
+    }
+  });
+
+  
   newMessage.appendChild(editButton);
   newMessage.appendChild(removeButton);
+
+  
   messageList.appendChild(newMessage);
 
-  updateMessagesVisibility();
-  event.target.reset();
+  
+  messageSection.style.display = "block";
+
+
+  messageForm.reset();
 });

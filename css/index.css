@@ -1,208 +1,291 @@
-/* =========================
-   GLOBAL STYLES
-========================= */
+/* =========================================================
+    Color and Font Settings
+   ========================================================= */
+:root {
+    --bg: #faf7f9;
+    --card-bg: #ffffff;
+    --accent: #8b3a62;
+    --accent-light: #b86a8c;
+    --text: #333;
+    --radius: 12px;
+    --shadow: 0 2px 6px rgba(0,0,0,0.08);
+    --max-width: 900px;
+
+    --font-body: "Inter", sans-serif;
+    --font-heading: "Poppins", sans-serif;
+}
+
+/* =========================================================
+    BASE STYLES
+   ========================================================= */
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: lightpink;
-    color: #333;
-    font-family: "Pacifico", cursive;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.7;
 }
 
-/* =========================
-   HEADINGS
-========================= */
+/* =========================================================
+   TYPOGRAPHY
+   ========================================================= */
+h1, h2 {
+    text-align: center;
+    margin: 0 0 1rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
 
 h1 {
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-    color: #8b3a62;
-    margin-top: 20px;
-    font-family: "Pacifico", cursive;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+    font-size: 2.8rem;
+    color: var(--accent);
+    letter-spacing: 1px;
 }
 
 h2 {
-    font-size: 2rem;
-    font-weight: 600;
-    color: #5a2a4a;
-    margin-top: 40px;
+    font-size: 1.8rem;
+    color: var(--accent-light);
+}
+
+/* =========================================================
+   NAVIGATION 
+   ========================================================= */
+nav {
+    position: sticky;
+    top: 0;
+    background: white;
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
     text-align: center;
+    z-index: 100;
 }
 
-/* =========================
-   SECTIONS (spacing + layout)
-========================= */
+nav a {
+    margin: 0 12px;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
 
+nav a:hover {
+    color: var(--accent-light);
+}
+
+/* =========================================================
+   SECTION LAYOUT 
+   ========================================================= */
 section {
-    padding: 20px;
-    margin: 20px auto;
-    max-width: 800px;
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 12px;
+    max-width: var(--max-width);
+    margin: 2rem auto;
+    padding: 2rem;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-/* =========================
-   EXPERIENCE LIST STYLING
-========================= */
-
-ul {
-    list-style-type: none;
-    padding: 0;
+/* =========================================================
+   ABOUT SECTION (
+   ========================================================= */
+.profile-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
 }
 
-ul li {
-    background: white;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.profile-wrapper img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--accent);
+    box-shadow: var(--shadow);
 }
-/* =========================
-   EXPERIENCE FLEXBOX LAYOUT
-========================= */
 
+/* =========================================================
+   EXPERIENCE SECTION 
+   ========================================================= */
 .experience-item {
-    background: white;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    background: var(--card-bg);
+    padding: 1.2rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
 }
 
-/* Row layout: job title left, date right */
 .experience-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Make title pretty */
 .job-title {
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin: 0;
+    font-weight: 600;
+    font-size: 1.1rem;
 }
 
-/* Make date align right */
 .job-date {
-    font-size: 1rem;
-    color: #8b3a62;
+    color: var(--accent);
+    font-size: 0.95rem;
 }
 
-/* Description under the flex row */
 .job-description {
-    margin-top: 10px;
-    font-size: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
 }
-/* =========================
-   SKILLS LIST STYLING
-========================= */
 
+/* =========================================================
+   SKILLS SECTION 
+   ========================================================= */
 #skills ul {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 10px;
+    justify-content: center;
     padding: 0;
     list-style: none;
 }
 
-/* =========================
-   SKILLS FLEXBOX STYLING
-========================= */
 #skills li {
-    background-color: #8b3a62;
+    background: var(--accent);
     color: white;
-    padding: 8px 12px;
+    padding: 8px 14px;
     border-radius: 20px;
     font-size: 0.9rem;
 }
-/* =========================
-   LINKS (CONNECT SECTION)
-========================= */
 
-a {
-    color: #b30059;
-    text-decoration: none;
-    font-weight: bold;
-    margin: 5px;
+/* =========================================================
+   PROJECTS SECTION (Rubric: API inserts repos)
+   ========================================================= */
+#projects ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.2rem;
+    justify-content: center;
 }
 
-a:hover {
-    color: #ff2e93;
+#projects li {
+    width: 260px;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 1rem;
+    box-shadow: var(--shadow);
+    transition: 0.2s ease;
+}
+
+#projects li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+}
+
+#projects a {
+    color: #0366d6;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+#projects a:hover {
     text-decoration: underline;
 }
 
-/* =========================
-   NAVIGATION BAR
-========================= */
-
-nav {
-    text-align: center;
-    margin: 20px 0;
-}
-
-nav a {
-    margin: 0 10px;
-}
-
-nav {
-    position: sticky;
-    top: 0;
-    background-color: white;
+/* =========================================================
+   LEAVE A MESSAGE SECTION 
+   ========================================================= */
+form input,
+form textarea {
+    width: 100%;
     padding: 10px;
-    z-index: 1000;
-    text-align: center;
-    border-bottom: 1px solid #ccc;
+    border-radius: var(--radius);
+    border: 1px solid #ccc;
+    margin-bottom: 1rem;
+    font-family: var(--font-body);
 }
-/* =========================
-   NAME STYLING (top of page)
-========================= */
 
+form button {
+    background: var(--accent);
+    color: white;
+    padding: 10px 16px;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-weight: 600;
+}
 
-#connect {
+form button:hover {
+    background: var(--accent-light);
+}
+
+#messages-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+}
+
+.message-item {
+    background: var(--card-bg);
+    padding: 1rem;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 1rem;
+}
+
+.message-item a {
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.message-item button {
+    margin-top: 0.5rem;
+    background: #d9534f;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: var(--radius);
+    cursor: pointer;
+}
+
+.message-item button:hover {
+    background: #c9302c;
+}
+
+/* =========================================================
+   CONNECT SECTION 
+   ========================================================= */
+#connect ul {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 0;
+    list-style: none;
 }
 
 #connect a {
-    margin: 10px;
-    padding: 10px;
     background: white;
-    border-radius: 8px;
+    padding: 10px;
+    border-radius: var(--radius);
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
 }
 
-#connect ul {
-  display: flex;
-  flex-direction: row;
-  justify-content: center; /* centers items */
-  gap: 15px; /* space between links */
-  padding: 0;
-  list-style: none;
+#connect a:hover {
+    color: var(--accent-light);
 }
 
-/* =====================
-   MEDIA QUERIES
-===================== */
-@media (max-width: 600px) {
-    #skills ul {
-        justify-content: center;
-        gap: 8px;
-    }
-
-    #skills li {
-        font-size: 0.8rem;
-        padding: 6px 10px;
-    }
+/* =========================================================
+   FOOTER 
+   ========================================================= */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--accent);
+    font-weight: 600;
 }
 /* =========================
    MESSAGE FORM STYLING
@@ -260,13 +343,6 @@ nav {
   min-height: 48px;
 }
 
-#messages form button[type="submit"]:hover {
-  background-color: #b30059;
-}
-
-/* =========================
-   MESSAGE LIST ENTRIES
-========================= */
 #messages ul li {
   display: flex;
   flex-wrap: wrap;
@@ -305,7 +381,6 @@ nav {
 
 /* =========================
    MEDIA QUERIES — FORM
-========================= */
 @media (max-width: 600px) {
   #messages input,
   #messages textarea {
@@ -327,7 +402,6 @@ nav {
 }
 /* =========================
    EDIT BUTTON & INLINE EDIT
-========================= */
 /* Edit input field */
 #messages ul li input.edit-input {
   flex: 1;
@@ -347,4 +421,11 @@ nav {
 
 #messages ul li button:first-of-type:hover {
   background-color: #5a2a4a;
+/* =========================================================
+   RESPONSIVE DESIGN
+   ========================================================= */
+@media (max-width: 600px) {
+    h1 { font-size: 2.2rem; }
+    section { padding: 1.5rem; }
+    #projects li { width: 100%; }
 }
