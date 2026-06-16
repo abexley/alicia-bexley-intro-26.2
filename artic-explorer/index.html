@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ARTIC Explorer</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+
+  <!-- Header -->
+  <header class="hero">
+    <nav>
+      <a href="../index.html">← Back to Portfolio</a>
+      <h1>ARTIC Explorer</h1>
+    </nav>
+    <p class="subtitle">Discover artworks and artists from the Art Institute of Chicago</p>
+  </header>
+
+  <!-- Controls -->
+ <section class="controls">
+
+  <label for="searchInput" class="sr-only">
+    Search artworks or artists
+  </label>
+
+  <input 
+    type="text" 
+    id="searchInput" 
+    placeholder="Search artworks or artists..."
+  >
+
+<button id="artworksBtn" aria-label="Show artworks">Show Artworks</button>
+<button id="artistsBtn" aria-label="Show artists">Show Artists</button>
+  </section>
+
+  <section class="pagination">
+<button id="prevPage" aria-label="Previous page">Previous</button>
+<button id="nextPage" aria-label="Next page">Next</button>
+</section>
+
+  <!-- Section Title -->
+  <h2 class="section-title">Results</h2>
+
+  <!-- Results Grid -->
+  <section id="results"></section>
+
+  <!-- Footer -->
+  <footer>
+    <p>ARTIC Explorer Open API• Built by Alicia Bexley </p>
+  </footer>
+
+  <script src="js/index.js"></script>
+</body>
+</html>
