@@ -4,13 +4,31 @@ const artistsBtn = document.getElementById("artistsBtn");
 const searchInput = document.getElementById("searchInput");
 const results = document.getElementById("results");
 
+const prevBtn = document.getElementById("prevPage");
+const nextBtn = document.getElementById("nextPage");
+const pageIndicator = document.getElementById("pageIndicator");
+
+
 let artistPage = 1;
 let artworkPage = 1;
 let currentView = "artworks";
 
+function updatePagination() {
+  if (currentView === "artists") {
+    pageIndicator.textContent = `Page ${artistPage}`;
+    prevBtn.disabled = artistPage === 1;
+  } else {
+    pageIndicator.textContent = `Page ${artworkPage}`;
+    prevBtn.disabled = artworkPage === 1;
+  }
+}
+
 // ---------- Fetch Artworks ----------
 async function fetchArtworks() {
   results.innerHTML = "<p>Loading artworks...</p>";
+
+  prevBtn.disabled = true;
+  nextBtn.disabled = true;
 
   try {
      const response = await fetch(
@@ -21,6 +39,10 @@ async function fetchArtworks() {
 
     displayArtworks(data.data);
 
+    updatePagination();
+
+    nextBtn.disabled = false;
+
   } catch (error) {
     results.innerHTML =
       "<p>Unable to load artworks. Please try again later.</p>";
@@ -29,9 +51,12 @@ async function fetchArtworks() {
   }
 }
 
-
+// ---------- Fetch Artists ----------
 async function fetchArtists() {
   results.innerHTML = "<p>Loading artists...</p>";
+
+  prevBtn.disabled = true;
+  nextBtn.disabled = true;
 
   try {
     const response = await fetch(
@@ -42,6 +67,10 @@ async function fetchArtists() {
 
     displayArtists(data.data);
 
+    updatePagination();
+
+    nextBtn.disabled = false;
+
   } catch (error) {
     results.innerHTML =
       "<p>Unable to load artists. Please try again later.</p>";
@@ -49,7 +78,6 @@ async function fetchArtists() {
     console.error(error);
   }
 }
-
 
 // ---------- Display Artworks ----------
 function displayArtworks(artworks) {
@@ -126,7 +154,7 @@ artistsBtn.addEventListener("click", () => {
 });
 
 
-document.getElementById("nextPage").addEventListener("click", () => {
+nextBtn.addEventListener("click", () => {
   if (currentView === "artists") {
     artistPage++;
     fetchArtists();
@@ -136,7 +164,7 @@ document.getElementById("nextPage").addEventListener("click", () => {
   }
 });
 
-document.getElementById("prevPage").addEventListener("click", () => {
+prevBtn.addEventListener("click", () => {
   if (currentView === "artists") {
     if (artistPage > 1) {
       artistPage--;
@@ -150,4 +178,5 @@ document.getElementById("prevPage").addEventListener("click", () => {
     }
   }
 });
- fetchArtworks();
+fetchArtworks();
+updatePagination();

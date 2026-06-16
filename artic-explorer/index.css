@@ -283,3 +283,13 @@ a:focus {
     font-size: 0.85rem;
   }
 }
+
+/* Disabled button styling */
+#prevPage:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  pointer-events: none;
+  background-color: #ccc;
+  color: #666;
+  border-color: #ccc;
+}
