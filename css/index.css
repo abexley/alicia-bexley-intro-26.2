@@ -435,6 +435,8 @@ footer {
 
 /* =========================
    MEDIA QUERIES — FORM
+   ========================= */
+   
 @media (max-width: 600px) {
   #messages input,
   #messages textarea {
@@ -456,6 +458,8 @@ footer {
 }
 /* =========================
    EDIT BUTTON & INLINE EDIT
+========================= */
+
 /* Edit input field */
 #messages ul li input.edit-input {
   flex: 1;
@@ -475,6 +479,8 @@ footer {
 
 #messages ul li button:first-of-type:hover {
   background-color: #5a2a4a;
+}
+
 /* =========================================================
    RESPONSIVE DESIGN
    ========================================================= */
